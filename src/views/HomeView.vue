@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import BirdAnimation from '@/components/BirdAnimation.vue';
+import VHeader from '@/components/Header.vue';
 </script>
 
 <template>
     <main>
-        <div class="header"></div>
+        <VHeader />
         <div class="body">
             <BirdAnimation />
         </div>
