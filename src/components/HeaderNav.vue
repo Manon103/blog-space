@@ -1,8 +1,12 @@
 <template>
-    <div :class="['container', headerClass]">
+    <div :class="['container align-center pl-32 pr-32', headerClass]">
         <div class="name">Manon's Blog</div>
-        <div class="menu">
-            <div class="menu-item" v-for="item in menuList" :key="item.label">
+        <div class="menu align-center">
+            <div
+                class="menu-item align-center"
+                v-for="item in menuList"
+                :key="item.label"
+            >
                 <!-- <img :src="item.icon" alt="" /> -->
                 {{ item.label }}
             </div>
@@ -15,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import HomeIcon from '@/assets/icons/home.svg';
 import ArticleIcon from '@/assets/icons/article.svg';
 import AboutIcon from '@/assets/icons/about.svg';
@@ -60,11 +64,8 @@ onUnmounted(() => {
     top: 0;
     z-index: 1;
     color: #fff;
-    padding: 0 32px;
     transition: all 0.3s linear;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
     &:hover {
         background-color: #000;
         opacity: 0.5;
@@ -77,16 +78,12 @@ onUnmounted(() => {
     }
 
     .menu {
-        display: flex;
-        align-items: center;
         height: 100%;
         .menu-item {
             margin: 0 24px;
             font-weight: 700;
             cursor: pointer;
             font-size: 16px;
-            display: flex;
-            align-items: center;
             &:hover {
                 color: #4bf06cce;
             }

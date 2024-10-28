@@ -1,0 +1,40 @@
+@size-list: 8, 12, 24, 32;
+
+.loop(@length) when (@length > 0) {
+    @width: extract(@size-list, @length);
+    .@{prefix}-@{width} {
+        @{property}: ~'@{width}px';
+    }
+    .loop((@length - 1));
+}
+
+.generate-classes(@prefix, @property) {
+    .loop(length(@size-list));
+}
+
+.generate-classes(mr, margin-right);
+.generate-classes(ml, margin-left);
+.generate-classes(mt, margin-top);
+.generate-classes(mb, margin-bottom);
+
+.generate-classes(pr, padding-right);
+.generate-classes(pl, padding-left);
+.generate-classes(pt, padding-top);
+.generate-classes(pb, padding-bottom);
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .generate-classes(mr, margin-right);
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-center {
+    display: flex;
+    justify-content: center;
+}

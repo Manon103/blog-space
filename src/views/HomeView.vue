@@ -7,7 +7,7 @@ import LatestArticle from '@/components/LatestArticle.vue';
 
 <template>
     <HeaderNav />
-    <div class="content">
+    <div class="content pb-32">
         <HomeIntro />
         <LatestArticle />
     </div>
@@ -19,6 +19,5 @@ import LatestArticle from '@/components/LatestArticle.vue';
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 32px;
 }
 </style>

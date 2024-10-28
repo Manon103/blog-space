@@ -4,7 +4,7 @@
         <div class="article-content">
             <div class="article-info">
                 <span class="type">最新文章</span>
-                <div class="title">
+                <div class="title mt-24 mb-32">
                     Cheap Airline Tickets Great Ways To Save
                 </div>
                 <div class="synopsis">
@@ -15,7 +15,7 @@
                     retained their
                 </div>
             </div>
-            <div class="footer-info">
+            <div class="footer-info mt-12">
                 <span class="tag">
                     <el-tag type="primary">Tag 1</el-tag>
                     <el-tag type="success">Tag 2</el-tag>
@@ -64,8 +64,6 @@
                 font-size: 36px;
                 font-weight: 700;
                 color: #183b56;
-                margin-top: 24px;
-                margin-bottom: 32px;
                 cursor: pointer;
             }
             .synopsis {
@@ -85,7 +83,6 @@
             font-size: 14px;
             align-items: center;
             color: #5a7184;
-            margin-top: 12px;
             flex-wrap: wrap;
             gap: 12px;
             .tag {

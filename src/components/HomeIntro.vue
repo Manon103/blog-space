@@ -1,5 +1,5 @@
 <template>
-    <div class="home-intro">
+    <div class="home-intro vertical-center">
         <div class="search">
             <el-input
                 v-model="searchVal"
@@ -8,11 +8,14 @@
             >
             </el-input>
             <el-button :icon="Search" />
-            <div class="tags-container">
+            <div class="tags-container mt-12">
                 <span>常用标签：</span>
-                <span v-for="item in popularTags" :key="item" class="tag">{{
-                    item
-                }}</span>
+                <span
+                    v-for="item in popularTags"
+                    :key="item"
+                    class="tag mr-12"
+                    >{{ item }}</span
+                >
             </div>
         </div>
     </div>
@@ -23,7 +26,7 @@ import { ref } from 'vue';
 import { Search } from '@element-plus/icons-vue';
 
 const searchVal = ref<string>('');
-const popularTags = ref<string[]>(['CSS', 'Vue', 'React']);
+const popularTags = ref<string[]>(['HTML/CSS', 'Vue', 'React', 'JavaScript']);
 </script>
 
 <style scoped lang="less">
@@ -34,9 +37,6 @@ const popularTags = ref<string[]>(['CSS', 'Vue', 'React']);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     .search {
         width: 40%;
@@ -44,7 +44,6 @@ const popularTags = ref<string[]>(['CSS', 'Vue', 'React']);
         position: relative;
 
         .tags-container {
-            margin-top: 20px;
             color: #fff;
             display: flex;
             align-items: center;
@@ -56,12 +55,11 @@ const popularTags = ref<string[]>(['CSS', 'Vue', 'React']);
                 line-height: 32px;
                 font-size: 14px;
                 padding: 0 16px;
-                margin-right: 12px;
                 cursor: pointer;
                 backdrop-filter: blur(5px);
                 background-color: #0003;
                 &:hover {
-                    box-shadow: 0 0 3px #fff;
+                    box-shadow: 0 0 4px #fff;
                 }
             }
         }
