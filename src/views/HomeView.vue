@@ -3,6 +3,7 @@
 import HeaderNav from '@/components/HeaderNav.vue';
 import HomeIntro from '@/components/HomeIntro.vue';
 import LatestArticle from '@/components/LatestArticle.vue';
+import PopularArticleList from '@/components/PopularArticleList.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import LatestArticle from '@/components/LatestArticle.vue';
     <div class="content pb-32">
         <HomeIntro />
         <LatestArticle />
+        <PopularArticleList />
     </div>
 </template>
 

@@ -52,8 +52,8 @@
         justify-content: space-between;
         .article-info {
             .type {
-                background-color: #ebf8f3;
-                color: #1565d8;
+                background-color: @purple-background-color;
+                color: @purple-color;
                 font-weight: 700;
                 font-size: 14px;
                 padding: 8px 12px;
@@ -63,11 +63,11 @@
                 line-height: 48px;
                 font-size: 36px;
                 font-weight: 700;
-                color: #183b56;
+                color: @main-font-color;
                 cursor: pointer;
             }
             .synopsis {
-                color: #5a7184;
+                color: @minor-font-color;
                 font-size: 18px;
                 line-height: 32px;
                 overflow: hidden;
@@ -82,7 +82,7 @@
             justify-content: space-between;
             font-size: 14px;
             align-items: center;
-            color: #5a7184;
+            color: @purple-color;
             flex-wrap: wrap;
             gap: 12px;
             .tag {
