@@ -17,9 +17,7 @@
             </div>
             <div class="footer-info mt-12">
                 <span class="tag">
-                    <el-tag type="primary">Tag 1</el-tag>
-                    <el-tag type="success">Tag 2</el-tag>
-                    <el-tag type="warning">Tag 4</el-tag>
+                    <TagList :tag-list="['tag1', 'tag2', 'tag3']"></TagList>
                 </span>
                 <span class="date-info">2024-10-25 11:10</span>
             </div>
@@ -27,7 +25,9 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TagList from './TagList.vue';
+</script>
 
 <style scoped lang="less">
 .latest-article {

@@ -3,22 +3,20 @@
         <img class="cover" :src="article.cover" alt="" />
         <div class="content">
             <div class="date mb-12">{{ article.createTime }}</div>
-            <div class="title mb-12">{{ article.title }}</div>
-            <div class="description mb-24">{{ article.description }}</div>
-            <div class="tags align-center">
-                <span
-                    v-for="item in article.tags"
-                    :key="item"
-                    class="tag mr-8"
-                    >{{ item }}</span
-                >
+            <div class="title mb-12">
+                <span>{{ article.title }}</span>
+                <img :src="ArrowUpRight" alt="" srcset="" />
             </div>
+            <div class="description mb-24">{{ article.description }}</div>
+            <TagList :tag-list="article.tags"></TagList>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Article } from '@/model/Article';
+import TagList from './TagList.vue';
+import ArrowUpRight from '@/assets/icons/arrow-up-right.svg';
 
 const { article } = defineProps<{
     article: Article;
@@ -49,6 +47,9 @@ const { article } = defineProps<{
             color: @main-font-color;
             line-height: 32px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .description {
             color: @minor-font-color;

@@ -32,7 +32,7 @@ const articleList = ref<Article[]>([
             'React 18 新特性介绍 This is a test text This is a test text This is a test text This is a test text',
         cover: 'https://cdn.pixabay.com/photo/2024/10/17/16/14/waterfall-9128051_960_720.jpg',
         createTime: '2022-01-15',
-        tags: ['React', 'JavaScript'],
+        tags: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
     },
     {
         title: 'Angular 12 更新',
