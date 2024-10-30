@@ -4,6 +4,7 @@ import HeaderNav from '@/components/HeaderNav.vue';
 import HomeIntro from '@/components/HomeIntro.vue';
 import LatestArticle from '@/components/LatestArticle.vue';
 import PopularArticleList from '@/components/PopularArticleList.vue';
+import PageFooter from '@/components/PageFooter.vue';
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import PopularArticleList from '@/components/PopularArticleList.vue';
         <LatestArticle />
         <PopularArticleList />
     </div>
+    <PageFooter />
 </template>
 
 <style scoped lang="less">

@@ -1,5 +1,5 @@
 <template>
-    <div class="popular-article mt-32">
+    <div class="popular-article mt-32 mb-32">
         <div class="title mb-32">推荐文章</div>
         <div class="article-list">
             <ArticleItem
@@ -8,6 +8,10 @@
                 :article="item"
                 class="article-item mb-24"
             />
+        </div>
+        <div class="more align-center">
+            全部文章
+            <img class="ml-8" src="@/assets/icons/arrow-right.svg" alt="" />
         </div>
     </div>
 </template>
@@ -82,6 +86,30 @@ const articleList = ref<Article[]>([
             &:not(:nth-child(3n)) {
                 margin-right: 32px;
             }
+        }
+    }
+    .more {
+        margin: auto;
+        color: @purple-color;
+        font-weight: 700;
+        width: fit-content;
+        padding: 4px 8px 4px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        img {
+            width: 12px;
+            margin-left: 4px;
+        }
+        animation: jump 2s ease-in-out infinite;
+    }
+
+    @keyframes jump {
+        0%,
+        100% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
         }
     }
 }
