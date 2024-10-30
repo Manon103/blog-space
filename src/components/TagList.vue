@@ -4,7 +4,7 @@
             v-for="(item, index) in tagLength"
             :key="item"
             class="tag mr-8"
-            :style="getRandomColor()"
+            :style="tagStyles[index]"
             >{{ tagList[index] }}</span
         >
     </div>
@@ -23,6 +23,10 @@ const tagLength = computed(() => {
 });
 
 const usedIndex = ref<number[]>([]);
+
+const tagStyles = computed(() => {
+    return props.tagList.map(() => getRandomColor());
+});
 
 const getRandomColor = () => {
     let index: number;
