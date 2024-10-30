@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { TagColor } from '@/constants/TagColor';
 
 const props = defineProps<{
@@ -22,25 +22,26 @@ const tagLength = computed(() => {
     return props.tagList.length;
 });
 
-const usedIndex = ref<number[]>([]);
-
 const tagStyles = computed(() => {
-    return props.tagList.map(() => getRandomColor());
+    return getRandomColor();
 });
 
 const getRandomColor = () => {
-    let index: number;
-    do {
-        if (usedIndex.value.length === tagLength.value) {
-            usedIndex.value = [];
+    let usedIndex: number[] = [];
+    return props.tagList.map(() => {
+        let index: number;
+        if (usedIndex.length >= TagColor.length) {
+            usedIndex = [];
         }
-        index = Math.floor(Math.random() * TagColor.length);
-    } while (usedIndex.value.includes(index));
-    usedIndex.value.push(index);
-    return {
-        color: TagColor[index].color,
-        backgroundColor: TagColor[index].backgroundColor,
-    };
+        do {
+            index = Math.floor(Math.random() * TagColor.length);
+        } while (usedIndex.includes(index));
+        usedIndex.push(index);
+        return {
+            color: TagColor[index].color,
+            backgroundColor: TagColor[index].backgroundColor,
+        };
+    });
 };
 </script>
 
