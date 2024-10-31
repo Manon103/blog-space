@@ -59,7 +59,7 @@ onUnmounted(() => {
 <style lang="less" scoped>
 .container {
     width: 100%;
-    height: 60px;
+    height: @header-height;
     position: fixed;
     top: 0;
     z-index: 1;

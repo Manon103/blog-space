@@ -4,4 +4,6 @@ export interface Article {
     description: string;
     createTime: string;
     tags: string[];
+    id: number;
+    content: () => Promise<typeof import('*?raw')>;
 }
