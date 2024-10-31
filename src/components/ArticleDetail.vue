@@ -2,8 +2,10 @@
     <div class="article-detail">
         <img :src="article?.cover" alt="" />
         <div class="brief center">
-            <span class="title mb-16">{{ article?.title }}</span>
-            <div class="description mt-16">{{ article?.description }}</div>
+            <span class="title mb-16 mt-12">{{ article?.title }}</span>
+            <div class="description mt-16 ellipsis">
+                {{ article?.description }}
+            </div>
             <span class="createTime mt-16">{{ article?.createTime }}</span>
             <TagList
                 :tag-list="article?.tags ?? []"
@@ -50,11 +52,25 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="less">
-code {
+<style lang="less" scoped>
+/deep/ code:not(.hljs) {
     background: #818b981f;
     border-radius: 6px;
     padding: 4px 8px;
+    margin: 0 4px;
+}
+
+/deep/ pre {
+    margin: 12px;
+}
+
+/deep/ p {
+    margin-bottom: 24px;
+}
+
+/deep/ img {
+    width: 60%;
+    max-height: 400px;
 }
 </style>
 
@@ -72,28 +88,23 @@ code {
     .brief {
         flex-direction: column;
         position: absolute;
-        top: calc(0.15 * 100vh);
         color: #fff;
-        left: 50%;
-        transform: translate(-50%);
-        max-width: 50%;
+        width: 100%;
+        height: calc(0.4 * 100vh);
+        top: 0;
         text-align: center;
+        backdrop-filter: blur(12px);
         .title {
             font-size: 36px;
             font-weight: 700;
             line-height: 36px;
-            backdrop-filter: blur(4px);
-            background-color: rgba(255, 255, 255, 0.3);
         }
         .description {
-            color: #e5e5e5;
-            backdrop-filter: blur(4px);
-            background-color: rgba(255, 255, 255, 0.3);
             font-size: 14px;
+            font-size: 14px;
+            max-width: 70%;
         }
         .createTime {
-            backdrop-filter: blur(4px);
-            background-color: rgba(255, 255, 255, 0.3);
             font-size: 14px;
         }
     }

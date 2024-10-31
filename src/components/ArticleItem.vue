@@ -7,7 +7,9 @@
                 <span>{{ article.title }}</span>
                 <img :src="ArrowUpRight" alt="" srcset="" />
             </div>
-            <div class="description mb-24">{{ article.description }}</div>
+            <div class="description mb-24 ellipsis">
+                {{ article.description }}
+            </div>
             <TagList :tag-list="article.tags"></TagList>
         </div>
     </div>
@@ -55,11 +57,6 @@ const { article } = defineProps<{
             color: @minor-font-color;
             font-size: 16px;
             line-height: 24px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
         }
         .tags {
             .tag {

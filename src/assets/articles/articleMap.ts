@@ -13,22 +13,22 @@ articleMap.set(1, {
 });
 articleMap.set(2, {
     id: 2,
-    title: 'Vue3.0新特性',
+    title: 'JavaScript任务调度机制',
     description:
-        'Vue3.0新特性介绍 测试文本 你说这个是什么东西 这个是个测试文本',
+        '本文简单的介绍了JavaScript任务调度机制，包括宏任务、微任务、事件循环等内容。',
     cover: 'https://cdn.pixabay.com/photo/2023/10/24/02/49/bike-8337261_960_720.jpg',
-    content: () => import('@/assets/articles/test1.md?raw'),
+    content: () => import('@/assets/articles/js-task-schedule.md?raw'),
     createTime: '2021-03-25',
-    tags: ['Vue3.0'],
+    tags: ['Javascript'],
 });
 articleMap.set(3, {
-    title: 'React 18 新特性',
+    title: '替换vue + webpack打包后的入口文件内容',
     description:
-        'React 18 新特性介绍 This is a test text This is a test text This is a test text This is a test text',
+        '本文介绍了如何替换vue + webpack打包后的入口文件内容，以及如何在打包后的文件中插入自定义的内容。',
     cover: 'https://cdn.pixabay.com/photo/2024/10/17/16/14/waterfall-9128051_960_720.jpg',
     createTime: '2022-01-15',
-    content: () => import('@/assets/articles/test1.md?raw'),
-    tags: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
+    content: () => import('@/assets/articles/webpack-change-script-src.md?raw'),
+    tags: ['Webpack', 'JavaScript', 'Vue'],
     id: 3,
 });
 articleMap.set(4, {
