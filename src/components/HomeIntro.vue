@@ -4,16 +4,18 @@
             <el-input
                 v-model="searchVal"
                 placeholder="搜索文章"
+                @keydown.enter="handleSearch"
                 class="input-with-select"
             >
             </el-input>
-            <el-button :icon="Search" />
+            <el-button :icon="Search" @click="handleSearch" />
             <div class="tags-container mt-12">
                 <span>常用标签：</span>
                 <span
                     v-for="item in popularTags"
                     :key="item"
                     class="tag mr-12"
+                    @click="() => searchByTag(item)"
                     >{{ item }}</span
                 >
             </div>
@@ -24,9 +26,26 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Search } from '@element-plus/icons-vue';
+import { useRouter } from 'vue-router';
 
 const searchVal = ref<string>('');
 const popularTags = ref<string[]>(['HTML/CSS', 'Vue', 'React', 'JavaScript']);
+const router = useRouter();
+
+const searchByTag = (tag: string) => {
+    router.push({
+        path: '/articleList',
+        query: { tag },
+    });
+};
+
+const handleSearch = () => {
+    if (!searchVal.value) return;
+    router.push({
+        path: '/articleList',
+        query: { query: searchVal.value },
+    });
+};
 </script>
 
 <style scoped lang="less">

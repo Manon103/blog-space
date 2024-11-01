@@ -3,14 +3,14 @@
         <div class="title mb-32">推荐文章</div>
         <div class="article-list">
             <ArticleItem
-                v-for="item in articleList.values()"
+                v-for="item in articleList"
                 :key="item.title"
                 :article="item"
                 @click="() => jumpToArticleDetail(item)"
                 class="article-item mb-24"
             />
         </div>
-        <div class="more align-center">
+        <div class="more align-center" @click="jumpToAll">
             全部文章
             <img class="ml-8" src="@/assets/icons/arrow-right.svg" alt="" />
         </div>
@@ -19,17 +19,29 @@
 
 <script setup lang="ts">
 import type { Article } from '@/model/Article';
-import { ref } from 'vue';
+import { computed } from 'vue';
 import ArticleItem from './ArticleItem.vue';
 import { useRouter } from 'vue-router';
 import articleMap from '@/assets/articles/articleMap';
 
-const articleList = ref(articleMap);
+const articleList = computed(() => {
+    const list: Article[] = [];
+    articleMap.forEach(value => {
+        if (value.recommend) {
+            list.push(value);
+        }
+    });
+    return list;
+});
 
 const router = useRouter();
 
 const jumpToArticleDetail = (article: Article) => {
     router.push({ name: 'article', params: { id: article.id } });
+};
+
+const jumpToAll = () => {
+    router.push('/articleList');
 };
 </script>
 

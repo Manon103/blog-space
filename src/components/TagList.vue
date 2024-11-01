@@ -3,20 +3,29 @@
         <span
             v-for="(item, index) in tagLength"
             :key="item"
-            class="tag mr-8"
+            :class="[
+                'tag',
+                'mr-8',
+                activeTag === tagList[index] ? activeClass : '',
+            ]"
             :style="tagStyle !== 'plain' && tagStyles[index]"
+            @click="() => clickTag(tagList[index])"
             >{{ tagList[index] }}</span
         >
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { TagColor } from '@/constants/TagColor';
 
+const emits = defineEmits(['clickTag']);
 const props = defineProps<{
     tagList: string[];
     tagStyle?: 'plain' | 'normal';
+    canSelected?: boolean;
+    activeClass?: string;
+    selectedTag?: string;
 }>();
 
 const tagLength = computed(() => {
@@ -26,6 +35,22 @@ const tagLength = computed(() => {
 const tagStyles = computed(() => {
     return getRandomColor();
 });
+
+const activeTag = ref<string>('');
+
+watch(
+    () => props.selectedTag,
+    val => {
+        activeTag.value = val ?? '';
+    },
+    {
+        immediate: true,
+    },
+);
+
+const clickTag = (tag: string) => {
+    emits('clickTag', tag);
+};
 
 const getRandomColor = () => {
     let usedIndex: number[] = [];

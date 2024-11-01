@@ -14,11 +14,21 @@ const router = createRouter({
             component: HomeView,
         },
         {
+            path: '/articleList',
+            name: 'articleList',
+            component: () => import('@/views/ArticleListView.vue'),
+        },
+        {
             path: '/article/:id',
             name: 'article',
             component: () => import('@/views/ArticleView.vue'),
         },
     ],
+    scrollBehavior() {
+        return {
+            top: 0,
+        };
+    },
 });
 
 export default router;

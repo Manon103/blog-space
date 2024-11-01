@@ -4,7 +4,7 @@
         <div class="content">
             <div class="date mb-12">{{ article.createTime }}</div>
             <div class="title mb-12">
-                <span>{{ article.title }}</span>
+                <span :title="article.title">{{ article.title }}</span>
                 <img :src="ArrowUpRight" alt="" srcset="" />
             </div>
             <div class="description mb-24 ellipsis">
@@ -52,6 +52,12 @@ const { article } = defineProps<{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin-right: 4px;
+            }
         }
         .description {
             color: @minor-font-color;

@@ -6,4 +6,5 @@ export interface Article {
     tags: string[];
     id: number;
     content: () => Promise<typeof import('*?raw')>;
+    recommend?: boolean;
 }

@@ -20,6 +20,7 @@ articleMap.set(2, {
     content: () => import('@/assets/articles/js-task-schedule.md?raw'),
     createTime: '2021-03-25',
     tags: ['Javascript'],
+    recommend: true,
 });
 articleMap.set(3, {
     title: '替换vue + webpack打包后的入口文件内容',
@@ -29,6 +30,7 @@ articleMap.set(3, {
     createTime: '2022-01-15',
     content: () => import('@/assets/articles/webpack-change-script-src.md?raw'),
     tags: ['Webpack', 'JavaScript', 'Vue'],
+    recommend: true,
     id: 3,
 });
 articleMap.set(4, {
@@ -39,6 +41,7 @@ articleMap.set(4, {
     createTime: '2021-05-12',
     content: () => import('@/assets/articles/test1.md?raw'),
     tags: ['Angular', 'TypeScript'],
+    recommend: true,
     id: 4,
 });
 articleMap.set(5, {
