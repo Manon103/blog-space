@@ -54,15 +54,15 @@ onMounted(() => {
 });
 
 const articleList = computed(() => {
-    let list = articleMap.values();
+    let list = [...articleMap.values()];
     if (selectedCategory.value !== 'ALL') {
-        list = articleMap
-            .values()
-            .filter(item => item.tags.includes(selectedCategory.value));
+        list = list.filter((item: Article) =>
+            item.tags.includes(selectedCategory.value),
+        );
     }
     const route = router.currentRoute.value;
     if (route.query.query) {
-        list = list.filter(item =>
+        list = list.filter((item: Article) =>
             item.title
                 .toLowerCase()
                 .includes((route.query.query as string).toLowerCase()),
