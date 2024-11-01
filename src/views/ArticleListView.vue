@@ -24,6 +24,7 @@
             <ArticleItem
                 v-for="item in articleList"
                 :key="item.title"
+                display-style="vertical"
                 :article="item"
                 @click="() => jumpToArticleDetail(item)"
                 class="article-item mb-24"
@@ -136,10 +137,6 @@ const jumpToArticleDetail = (article: Article) => {
     flex-wrap: wrap;
     flex-grow: 1;
     .article-item {
-        width: calc((100% - 64px) / 3);
-        &:not(:nth-child(3n)) {
-            margin-right: 32px;
-        }
     }
 }
 .empty {

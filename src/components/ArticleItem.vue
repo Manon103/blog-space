@@ -1,16 +1,18 @@
 <template>
-    <div class="article-item">
-        <img class="cover" :src="article.cover" alt="" />
+    <div :class="['article-item', displayStyle]">
+        <img class="cover" :src="props.article.cover" alt="" />
         <div class="content">
-            <div class="date mb-12">{{ article.createTime }}</div>
+            <div class="date mb-12">{{ props.article.createTime }}</div>
             <div class="title mb-12">
-                <span :title="article.title">{{ article.title }}</span>
+                <span :title="props.article.title">{{
+                    props.article.title
+                }}</span>
                 <img :src="ArrowUpRight" alt="" srcset="" />
             </div>
             <div class="description mb-24 ellipsis">
-                {{ article.description }}
+                {{ props.article.description }}
             </div>
-            <TagList :tag-list="article.tags"></TagList>
+            <TagList :tag-list="props.article.tags"></TagList>
         </div>
     </div>
 </template>
@@ -20,13 +22,38 @@ import type { Article } from '@/model/Article';
 import TagList from './TagList.vue';
 import ArrowUpRight from '@/assets/icons/arrow-up-right.svg';
 
-const { article } = defineProps<{
-    article: Article;
-}>();
+const props = withDefaults(
+    defineProps<{
+        article: Article;
+        displayStyle?: 'vertical' | 'horizontal';
+    }>(),
+    {
+        displayStyle: 'horizontal',
+    },
+);
 </script>
 
 <style scoped lang="less">
 @cover-height: 240px;
+.article-item.vertical {
+    width: 100%;
+    display: flex;
+    height: 200px;
+    .content {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        .description {
+            flex-grow: 1;
+        }
+    }
+
+    .cover {
+        width: 30%;
+        height: 100%;
+    }
+}
+
 .article-item {
     width: 100%;
     box-shadow: 0 0 3px #0003;
